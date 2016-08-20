@@ -1,16 +1,15 @@
 // Creates the gservice factory. This will be the primary means by which we interact with Google Maps
 angular.module('gservice', [])
-.factory('gservice', function($rootScope,$http){
+.factory('gservice', function($http){
 
         // Initialize Variables
         // -------------------------------------------------------------
         // Service our factory will return
         var googleMapService = {};
 
-     // Update Broadcasted Variable (lets the panels know to change their lat, long values)
-     googleMapService.clickLat = marker.getPosition().lat();
-     googleMapService.clickLong = marker.getPosition().lng();
-     $rootScope.$broadcast("clicked");
+        // Handling Clicks and location selection
+        googleMapService.clickLat  = 0;
+        googleMapService.clickLong = 0;
 
         // Array of locations obtained from API calls
         var locations = [];
