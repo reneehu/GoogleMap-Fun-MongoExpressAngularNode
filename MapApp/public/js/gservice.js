@@ -1,6 +1,6 @@
 // Creates the gservice factory. This will be the primary means by which we interact with Google Maps
 angular.module('gservice', [])
-    .factory('gservice', function($http){
+    .factory('gservice', function($rootScope, $http){
 
         // Initialize Variables
         // -------------------------------------------------------------
@@ -13,6 +13,10 @@ angular.module('gservice', [])
         // Selected Location (initialize to center of America)
         var selectedLat = 39.50;
         var selectedLong = -98.35;
+
+		//handle click and location selections
+		googleMapService.clickLat = 0;
+		googleMapService.clickLong = 0;
 
         // Functions
         // --------------------------------------------------------------
